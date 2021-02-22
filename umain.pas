@@ -59,6 +59,8 @@ procedure TFMain.Button2Click(Sender: TObject);
 var i,xWidth,xHeight:integer; bmp:TBitmap;
 begin
  if (edit1.Text<>'') and (edit2.Text<>'') then begin
+ try
+
  bmp := TBitmap.Create;
 
  for i:= 1 to grid.rowcount - 1 do begin
@@ -70,6 +72,10 @@ begin
     bmp.SaveToFile(edit2.Text+'\'+extractfilename(edit1.Text)+grid.Cells[1,i]+grid.Cells[0,i]+'.png');
     memo1.Lines.Add('File created :'+edit2.Text+extractfilename(edit1.Text)+grid.Cells[1,i]+grid.Cells[0,i]+'.png');
    end;
+ end;
+
+ finally
+   bmp.Free;
  end;
 
  end else showmessage('Lengkapi data dulu');
