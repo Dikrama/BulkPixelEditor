@@ -67,7 +67,7 @@ begin
     xHeight := strtoint(grid.Cells[0,i]);
     bmp.SetSize(xwidth,xheight);
     bmp.Canvas.StretchDraw(rect(0,0,xwidth,xheight),image1.Picture.Bitmap);
-    bmp.SaveToFile(edit2.Text+extractfilename(edit1.Text)+grid.Cells[1,i]+grid.Cells[0,i]+'.png');
+    bmp.SaveToFile(edit2.Text+'\'+extractfilename(edit1.Text)+grid.Cells[1,i]+grid.Cells[0,i]+'.png');
     memo1.Lines.Add('File created :'+edit2.Text+extractfilename(edit1.Text)+grid.Cells[1,i]+grid.Cells[0,i]+'.png');
    end;
  end;
